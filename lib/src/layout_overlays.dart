@@ -136,7 +136,9 @@ class _OverlayBuilderState extends State<OverlayBuilder> {
   }
 
   void addToOverlay(OverlayEntry entry) async {
-    Overlay.of(context).insert(entry);
+    // Overlay.of(context).insert(overlayEntry);
+    final overlay = Overlay.of(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) => overlay.insert(overlayEntry));
   }
 
   void hideOverlay() {
