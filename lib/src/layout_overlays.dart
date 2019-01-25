@@ -157,7 +157,7 @@ class _OverlayBuilderState extends State<OverlayBuilder> {
   }
 
   void buildOverlay() async {
-    overlayEntry?.markNeedsBuild();
+    WidgetsBinding.instance.addPostFrameCallback((_) => overlayEntry?.markNeedsBuild());
   }
 
   @override
